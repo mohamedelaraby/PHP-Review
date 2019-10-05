@@ -3,18 +3,18 @@
 <?php 
 
 //Form variables
-// $userName = htmlentities($_REQUEST['name']);
-// $email = htmlentities($_REQUEST['email']);
+$userName = htmlentities($_REQUEST['name']);
+$email = htmlentities($_REQUEST['email']);
 
-// // Form content validation
-// if(isset($userName) && isset($email)){
-//     echo $_SERVER['QUERY_STRING'] . "<br>";
-//    echo $userName . ' <br>' . $email . '<br>' . '<br>';
-// } else {
-//     echo 'Type something';
-// }
+// Form content validation
+if(isset($userName) && isset($email)){
+    echo $_SERVER['QUERY_STRING'] . "<br>";
+   echo $userName . ' <br>' . $email . '<br>' . '<br>';
+} else {
+    echo 'Type something';
+}
 
-echo $_SERVER['QUERY_STRING'];
+
 ?>
 
 
