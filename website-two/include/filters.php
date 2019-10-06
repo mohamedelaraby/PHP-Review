@@ -54,8 +54,8 @@ $var = '<scritp>alert(1)</scritp>';
 
 $detials = array(
  'name' => 'brad',
- 'age' => '135',
- 'email' => 'braddfgdfgdfgdf.com'
+ 'age' => '35',
+ 'email' => 'brad@yahoo.com'
 );
 
 $filters = array(

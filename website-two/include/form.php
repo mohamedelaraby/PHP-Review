@@ -1,51 +1,54 @@
-
-
 <?php 
+    //Message vars
 
-//Form variables
-$userName = htmlentities($_REQUEST['name']);
-$email = htmlentities($_REQUEST['email']);
 
-// Form content validation
-if(isset($userName) && isset($email)){
-    echo $_SERVER['QUERY_STRING'] . "<br>";
-   echo $userName . ' <br>' . $email . '<br>' . '<br>';
-} else {
-    echo 'Type something';
-}
+
+    // Check for submit event
+    if(filter_has_var(INPUT_POST, 'submit')){
+
+        // Get form data
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+        
+        // Check Required Fields
+        if(!empty($name) && !empty($email) && !empty($message)){
+            //  we passed
+
+        }else{
+            //  we failed
+        }
+    
+    }
+
+
+
+
 
 
 ?>
 
+ <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+  <fieldset>
+    <!---[ Name Field ]--->
+        <div class="form-group">
+            <label for="user-name">Name</label>
+            <input type="text" name="name" class="form-control" ilHelp" placeholder="Type you name">
+        </div>
 
-<div class="row">
-    <form method="POST" action="index.php">
-    <div class="form-group">
-        <label for="username">User name</label><br>
-        <input type="text"
-                class="form-control"
-                id="username"
-                name="name"
-                aria-describedby="Username"
-                placeholder="Type user name"
-             >
-        <br>
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="email">Email address</label><br>
-        <input type="email"
-                name="email"
-                class="form-control" 
-                id="exampleInputEmail1" 
-                aria-describedby="emailHelp" 
-                placeholder="Enter email" 
-                > 
-        <br>
-    </div>
+
+        <!---[ Email Field ]--->
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+
+         <!---[ Message Field ]--->
+        <div class="form-group">
+            <label for="text-message">Message</label>
+            <textarea name="message" class="form-control" cols='5' rows="10"></textarea>
+        </div>
     
-    <br>
-    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
-    </form>
-</div>
-<br> 
+    <button type="submit"  name='submit' class="btn btn-primary" value="submit">Submit</button>
+ </fieldset>
+</form>
