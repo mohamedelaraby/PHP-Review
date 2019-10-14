@@ -1,51 +1,55 @@
-
-
 <?php 
+/*
+[  @Author ] :-  Muhammad alaraby
+[  @Date   ] :-  10/14/2019
+[  @Info   ] :-  Login form
+*/
+?>
 
-//Form variables
-$userName = htmlentities($_REQUEST['name']);
-$email = htmlentities($_REQUEST['email']);
-
-// Form content validation
-if(isset($userName) && isset($email)){
-    echo $_SERVER['QUERY_STRING'] . "<br>";
-   echo $userName . ' <br>' . $email . '<br>' . '<br>';
-} else {
-    echo 'Type something';
-}
-
-
+<!-- ------------------------------------------------------ -->
+<?php 
+    //Check for Submit
+    if(filter_has_var(INPUT_POST, 'submit')){
+        echo 'YOu are in';
+    } else {
+        echo 'out';
+    }
 ?>
 
 
 <div class="row">
-    <form method="POST" action="index.php">
-    <div class="form-group">
-        <label for="username">User name</label><br>
-        <input type="text"
-                class="form-control"
-                id="username"
-                name="name"
-                aria-describedby="Username"
-                placeholder="Type user name"
-             >
-        <br>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+  <fieldset>
+    <legend>Splexa</legend>
+
+     <!-- Name -->
+     <div class="form-group">
+      <label for="username">Your Name</label>
+      <input type="email" name="name" class="form-control" id="username"  placeholder="Type your name">
+      <small id="usernameHelp" class="form-text text-muted">Type any Name!</small>
     </div>
-    <br>
+
+    <!-- Email -->
     <div class="form-group">
-        <label for="email">Email address</label><br>
-        <input type="email"
-                name="email"
-                class="form-control" 
-                id="exampleInputEmail1" 
-                aria-describedby="emailHelp" 
-                placeholder="Enter email" 
-                > 
-        <br>
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">It should be unique!</small>
     </div>
-    
-    <br>
-    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
-    </form>
-</div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+    </div>
+   
+   <!-- Message -->
+    <div class="form-group">
+      <label for="message">Messsage</label>
+      <textarea class="form-control" name="usermessage" id="message" rows="5" placeholder="What`s in your mind?"></textarea>
+    </div>    
+    <button type="submit" name="submit" class="btn btn-info">Submit</button>
+  </fieldset>
+</form>
+</div>     
+
 <br> 
